@@ -37,7 +37,7 @@ function formatLine(line) {
 
     // Sensitive flags
     if (line.match(new RegExp(`^(${FLAGS.join("|")})`, "i"))) {
-        flag = line.replace(/\s{2+}/g, " ");
+        flag = line.replace(/\s{2,}/g, " ");
         return res();
     }
     // Other flags
@@ -88,9 +88,9 @@ function formatText(text) {
             return;
         }
         res += arr[0].padEnd(7) + " ";
-        res += arr[1].padEnd(5) + " ";
-        res += arr[2].padEnd(5) + " ";
-        res += arr[3].padEnd(5) + " ";
+        res += arr[1].padEnd(6) + " ";
+        res += arr[2].padEnd(6) + " ";
+        res += arr[3].padEnd(6) + " ";
         res += arr[4].padEnd(6) + " ";
         if (arr[5]) res += "; " + arr[5];
         res = res.trim() + "\n";
