@@ -64,6 +64,10 @@ function formatLine(line) {
 }
 
 function formatText(text) {
+    // Delete continuous empty lines
+    text = text.replace(/\n{3,}/g, "\n\n")
+    text = text.replace(/(^\n+)|(\n+$)/g, "");
+    
     let hasEmptyline = true;
     let lines = text.split("\n");
     let res = "";
@@ -83,11 +87,11 @@ function formatText(text) {
             res += "; " + arr[5] + "\n";
             return;
         }
-        res += arr[0].padEnd(8);
-        res += arr[1].padEnd(6);
-        res += arr[2].padEnd(6);
-        res += arr[3].padEnd(6);
-        res += arr[4].padEnd(7);
+        res += arr[0].padEnd(7) + " ";
+        res += arr[1].padEnd(5) + " ";
+        res += arr[2].padEnd(5) + " ";
+        res += arr[3].padEnd(5) + " ";
+        res += arr[4].padEnd(6) + " ";
         if (arr[5]) res += "; " + arr[5];
         res = res.trim() + "\n";
         hasEmptyline = false;
@@ -110,11 +114,8 @@ function formatText(text) {
         }
         dealline(po);
     }
-
-    // Clear empty head and tail;
-    res = res.replace(/(^\n+)|(\n+$)/g, "");
-    res = res.replace(/\n{3+}/g, "\n\n");
-    return res + "\n";
+    
+    return res;
 }
 
 const $textarea = $("textarea"), $button = $("button");
