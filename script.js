@@ -51,7 +51,7 @@ function formatLine(line) {
     switch (words.length) {
         case 2: oper = words[0]; oprn1 = words[1]; break;
         case 3: oper = words[0]; oprn1 = words[1]; oprn2 = words[2]; break;
-        case 4: oper = words[0]; oprn1 = words[1]; oprn2 = words[2]; oper3 = words[3]; break;
+        case 4: oper = words[0]; oprn1 = words[1]; oprn2 = words[2]; oprn3 = words[3]; break;
         default: comment = line.trim() + " " + comment; comment = comment.trim(); return res();
     }
 
